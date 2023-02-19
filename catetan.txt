@@ -1,0 +1,11 @@
+php artisan test --> run folder tests
+*FUNCTION*
+function singleton(key, closure) --> saat menggunakan make(key), maka memanggil object yang sama saat membuat object pertama kali *assertNotSame
+function bind(key, closure) --> saat menggunakan make(key), maka akan membuat object baru dan function closure selalu dipanggil *assertsame
+function instance(key, object) --> sama seperti singleton, tapi digunakan apabila object sudah ada. saat menggunkan make(key), object yang dimasukkan akan di return
+
+*Binding*
+function bind(interface, class) --> binding dari interfaces ke class
+function bind(interface, closure) --> closure return object class implementasinya
+function singleton(interface, class) --> 
+function singleton(interface, closure) --> 
