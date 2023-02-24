@@ -11,3 +11,4 @@ function singleton(interface, class) -->
 function singleton(interface, closure) --> 
 
 *Facades* (gunakan ketika tdk bisa memakai dependency injection)
+class yg enyediakan static akses ke fitur di Service Container atau Application
