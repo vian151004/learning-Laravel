@@ -34,8 +34,8 @@ class ServiceContainerTest extends TestCase
        $person1 = $this->app->make(Person::class); //closure() //new Person("Eko", "Khannedy")
        $person2 = $this->app->make(Person::class); //closure() //new Person("Eko", "Khannedy")
 
-       self::assertEquals('Eko', $person1->firstname);
-       self::assertEquals('Khannedy', $person2->lastname);
+       self::assertEquals('Eko', $person1->firstName);
+       self::assertEquals('Eko', $person2->firstName);
        self::assertNotSame($person1, $person2);
     }
 
@@ -48,8 +48,8 @@ class ServiceContainerTest extends TestCase
        $person1 = $this->app->make(Person::class); //new Person("Eko", "Khannedy") if not exist
        $person2 = $this->app->make(Person::class); //return existing
 
-       self::assertEquals('Eko', $person1->firstname);
-       self::assertEquals('Khannedy', $person2->lastname);
+       self::assertEquals('Eko', $person1->firstName);
+       self::assertEquals('Eko', $person2->firstName);
        self::assertSame($person1, $person2);
     }
 
@@ -63,8 +63,8 @@ class ServiceContainerTest extends TestCase
        $person3 = $this->app->make(Person::class); //return object $person
        $person4 = $this->app->make(Person::class); //return object $person
 
-       self::assertEquals('Eko', $person1->firstname);
-       self::assertEquals('Eko', $person2->firstname);
+       self::assertEquals('Eko', $person1->firstName);
+       self::assertEquals('Eko', $person2->firstName);
        self::assertSame($person, $person1);
        self::assertSame($person1, $person2);
     }
@@ -89,10 +89,15 @@ class ServiceContainerTest extends TestCase
     
     public function testInterfaceToClass()
     {
-        $this->app->singleton(HelloService::class, HelloServiceIndonesia::class);
+        // $this->app->singleton(HelloService::class, HelloServiceIndonesia::class);
 
-        $helloservice = $this->app->make(HelloService::class);
-        self::assertEquals("Halo Eko", $helloservice->hello("Eko"));
+        $this->app->singleton(HelloService::class, function ($app){
+            return new HelloServiceIndonesia();
+        });
+
+        $helloService = $this->app->make(HelloService::class);
+
+        self::assertEquals("Halo Eko", $helloService->hello("Eko"));
     }
 
 

@@ -2,11 +2,12 @@
 
 namespace App\Data;
 
-class Person{
+class Person
+{
 
     public function __construct(
-        public string $firstname,
-        public string $lastname,
+        public string $firstName,
+        public string $lastName,
     )
     {
         

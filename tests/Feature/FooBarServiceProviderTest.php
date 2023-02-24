@@ -34,7 +34,7 @@ class FooBarServiceProviderTest extends TestCase
 
         self::assertSame($helloService1, $helloService2);
 
-        self::assertEquals("Halo Eko", $helloService1->hello("Eko"));
+        self::assertEquals('Halo Eko', $helloService1->hello('Eko'));
     }
 
     public function testEmpty()
