@@ -12,3 +12,6 @@ function singleton(interface, closure) -->
 
 *Facades* (gunakan ketika tdk bisa memakai dependency injection)
 class yg enyediakan static akses ke fitur di Service Container atau Application
+
+ $firstName1 = config('contoh.author.first'); --> config() => helper function
+ $firstName2 = Config::get('contoh.author.first'); --> Config() => facades
