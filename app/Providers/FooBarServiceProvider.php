@@ -42,8 +42,13 @@ class FooBarServiceProvider extends ServiceProvider implements DeferrableProvide
         //
     }
 
-    // public function provides()
-    // {
-    //     return [HelloService::class, Foo::class, Bar::class]; 
-    // }
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array<int, string>
+     */
+    public function provides(): array
+    {
+        return [HelloService::class, Foo::class, Bar::class]; 
+    }
 }
